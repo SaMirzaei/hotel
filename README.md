@@ -44,7 +44,9 @@ $ dotnet build
 $ > cd .\Hotel
 $ dotnet run
 ```
+### See Swagger Page
 
+open http://localhost:5000
 ---
 
 ## License
