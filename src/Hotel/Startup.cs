@@ -6,7 +6,6 @@
 
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Mvc.ApiExplorer;
     using Microsoft.AspNetCore.Mvc.Formatters;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
@@ -46,15 +45,9 @@
                     })
                 .AddFormatterMappings()
                 .AddXmlSerializerFormatters()
+                .AddApiExplorer()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-
-            services.AddVersionedApiExplorer(
-                options =>
-                {
-                    options.SubstituteApiVersionInUrl = true;
-                    options.AssumeDefaultVersionWhenUnspecified = true;
-                });
-
+            
             services
                 .AddSingleton<Func<DateTime>>(() => DateTime.UtcNow)
                 .AddServices()
@@ -70,7 +63,7 @@
             services.BuildServiceProvider();
         }
 
-        public void Configure(IApplicationBuilder app, IHostEnvironment env, IApiVersionDescriptionProvider provider)
+        public void Configure(IApplicationBuilder app, IHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -83,8 +76,6 @@
                 {
                     options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
                     options.RoutePrefix = string.Empty;
-                    options.OAuthClientId("swaggerui");
-                    options.OAuthAppName("Hotel API - Swagger");
                 });
 
             app.UseResponseCompression()
@@ -97,7 +88,7 @@
                 "v1",
                 new OpenApiInfo
                 {
-                    Title = $"HQ Plush Hotel API",
+                    Title = "HQ Plush Hotel API",
                     Version = "v1",
                     Description = "HQ Plusy Company",
                     TermsOfService = new Uri("http://www.hqplus.de/licenses"),

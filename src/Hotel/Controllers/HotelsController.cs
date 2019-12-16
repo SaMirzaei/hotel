@@ -6,6 +6,7 @@
     using Hotel.Models;
     using Hotel.Services.Abstracts;
 
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
 
     public class HotelsController : MainController
@@ -17,8 +18,9 @@
             _hotelManagement = hotelManagement;
         }
 
+        [ProducesResponseType(typeof(RootObject), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpGet("{hotelID}/{arrivalDate}")]
-        [ProducesResponseType(typeof(RootObject), (int)HttpStatusCode.OK)]
         public IActionResult Get(int hotelID, DateTime arrivalDate)
         {
             var result = _hotelManagement.GetHotels(hotelID, arrivalDate);

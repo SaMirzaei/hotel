@@ -1,11 +1,14 @@
-# Open Weather Map
+# Hotel API
 
-> simple Web page that display a forecast of the next 5 days and the current weather data for any/most cities. The desired location must be able to be changed by the user via an input mask either by means of postal code or place name.
+> simple RESTful API return a json result of hotels 
 
 **Badges will go here**
 
-- Vue.js for the frontend
 - ASP.NET Core
+- Swashbuckle.AspNetCore
+- FluentAssertions
+- NSubstitute
+- nunit
 
 ---
 
@@ -13,8 +16,12 @@
 
 > If your `README` has a lot of info, section headers might be nice.
 
-- [Installation](#installation)
-- [License](#license)
+- [Hotel API](#hotel-api)
+  - [Table of Contents (Optional)](#table-of-contents-optional)
+  - [Installation](#installation)
+    - [Clone](#clone)
+    - [Setup](#setup)
+  - [License](#license)
 
 
 ---
@@ -26,30 +33,21 @@
 
 ### Clone
 
-- Clone this repo to your local machine using `https://github.com/SaMirzaei/wather.git`
+- Clone this repo to your local machine using `https://github.com/SaMirzaei/hotel.git`
 
 ### Setup
 
-- recommend using VS Code and the official Vetur extension for a productive experience with Vue single file components (https://vuejs.org/v2/guide/single-file-components.html).
-
-> now install npm
+- recommend using Visual Studio or VS Code.
 
 ```shell
-$ npm install
-$ npm run serve
+$ dotnet build
+$ > cd .\Hotel
+$ dotnet run
 ```
-
----
-
-## Weather API website
-
-Reach out to me at one of the following places!
-
-- Website at <a href="https://openweathermap.org/" target="_blank">`openweathermap.com`</a>
 
 ---
 
 ## License
 
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
-- Copyright 2019 © <a href="https://appsfactory.de/en/" target="_blank">Appsfactory.com</a>.
+- Copyright 2019 © <a href="https://www.hqplus.de" target="_blank">HQPlus.de</a>.

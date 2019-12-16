@@ -4,6 +4,7 @@
 
     [ApiController]
     [Route("[controller]")]
+    [Produces("application/json")]
     public class MainController : ControllerBase
     {
     }
